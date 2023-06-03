@@ -6,15 +6,15 @@ async function getPhotos() {
 
 const buttom = document.getElementById("buttom");
 const content = document.getElementById("content");
-
 buttom.addEventListener("click", async () => {
-  const photos = await getPhotos();
+  photos = await getPhotos();
   for (photo of photos) {
     const div = document.createElement("div");
     const p = document.createElement("p");
     const img = document.createElement("img");
     p.textContent = photo.title;
     img.src = photo.url;
+    div.appendChild(p2);
     div.appendChild(p);
     div.appendChild(img);
     content.appendChild(div);

@@ -38,3 +38,5 @@ button.addEventListener('click', async () => {
 // TODO: barra de búsqueda para encontrar fotos
 
 // TODO: crear interfaz agradable a la vista
+
+// TODO: implementar scroll infinito de fotos (ir mostrando entre 5 y 10~)

@@ -10,7 +10,8 @@ button.addEventListener('click', async () => {
     const content = document.getElementById('content');
 
     const photos = await getPhotos();
-    for (const photo of photos) {
+    // Using fixed amount of photos temporarily because if not it'll turn into an XBOX 360 Red Ring of Death
+    for (const photo of photos.slice(0, 100)) {
         const div = document.createElement('div');
 
         const template = `

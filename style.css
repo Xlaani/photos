@@ -24,7 +24,7 @@ body {
     justify-content: center;
 }
 
-button {
+.get-button {
     background: linear-gradient(#1f1e1e, black);
     color: #fff;
     font-family: 'Poppins', sans-serif;
@@ -33,11 +33,11 @@ button {
     padding: 10px 10px;
     border: none;
     margin: 5px;
-    transition: all 1s;
+    transition: all 200ms;
     cursor: pointer;
 }
 
-button:hover {
+.get-button:hover {
     background: #fff;
     color: black;
 }

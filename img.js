@@ -4,9 +4,9 @@ async function getPhotos() {
     return photos;
 }
 
-const buttom = document.getElementById('buttom');
+const button = document.getElementById('button');
 
-buttom.addEventListener('click', async () => {
+button.addEventListener('click', async () => {
     const content = document.getElementById('content');
 
     const photos = await getPhotos();
@@ -14,13 +14,20 @@ buttom.addEventListener('click', async () => {
         const div = document.createElement('div');
         const p = document.createElement('p');
         const img = document.createElement('img');
+        const deleteButton = document.createElement('button');
 
         p.textContent = photo.title;
         img.src = photo.url;
+        deleteButton.textContent = 'Delete';
 
         div.appendChild(p);
         div.appendChild(img);
+        div.appendChild(deleteButton);
         content.appendChild(div);
+
+        deleteButton.addEventListener('click', () => {
+            div.remove();
+        });
     }
 });
 

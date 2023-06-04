@@ -12,19 +12,19 @@ button.addEventListener('click', async () => {
     const photos = await getPhotos();
     for (const photo of photos) {
         const div = document.createElement('div');
-        const p = document.createElement('p');
-        const img = document.createElement('img');
-        const deleteButton = document.createElement('button');
 
-        p.textContent = photo.title;
-        img.src = photo.url;
-        deleteButton.textContent = 'Delete';
+        const template = `
+            <div>
+                <p>${photo.title}</p>
+                <img src="${photo.url}" />
+                <button data-id="${photo.id}">Delete</button>
+            </div>
+        `;
 
-        div.appendChild(p);
-        div.appendChild(img);
-        div.appendChild(deleteButton);
+        div.innerHTML = template;
         content.appendChild(div);
 
+        const deleteButton = content.querySelector(`[data-id="${photo.id}"]`);
         deleteButton.addEventListener('click', () => {
             div.remove();
         });

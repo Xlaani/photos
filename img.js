@@ -8,12 +8,11 @@ const button = document.getElementById('button');
 
 button.addEventListener('click', async () => {
     const content = document.getElementById('content');
+    content.innerHTML = '';
 
     const photos = await getPhotos();
     // Using fixed amount of photos temporarily because if not it'll turn into an XBOX 360 Red Ring of Death
     for (const photo of photos.slice(0, 100)) {
-        const div = document.createElement('div');
-
         const template = `
             <div>
                 <p>${photo.title}</p>
@@ -22,13 +21,13 @@ button.addEventListener('click', async () => {
             </div>
         `;
 
-        div.innerHTML = template;
-        content.appendChild(div);
+        content.insertAdjacentHTML('beforeend', template);
 
-        const deleteButton = content.querySelector(`[data-id="${photo.id}"]`);
-        deleteButton.addEventListener('click', () => {
-            div.remove();
-        });
+        content
+            .querySelector(`[data-id="${photo.id}"]`)
+            .addEventListener('click', (event) => {
+                event.target.parentElement.remove();
+            });
     }
 });
 

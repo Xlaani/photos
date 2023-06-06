@@ -15,9 +15,11 @@ button.addEventListener('click', async () => {
     for (const photo of photos.slice(0, 100)) {
         const template = `
             <div data-id="${photo.id}">
-                <p>${photo.title}</p>
+                <p data-title>${photo.title}</p>
                 <img src="${photo.url}" />
                 <button data-delete-btn>Delete</button>
+                <button data-update-btn>Update</button>
+                <inpunt
             </div>
         `;
 
@@ -28,6 +30,12 @@ button.addEventListener('click', async () => {
         const deleteButton = div.querySelector('[data-delete-btn]');
         deleteButton.addEventListener('click', () => {
             div.remove();
+        });
+        const updateButton = div.querySelector('[data-update-btn]');
+        updateButton.addEventListener('click', () => {
+            const p = div.querySelector('[data-title]');
+            const newTitle = prompt('new title');
+            p.textContent = newTitle;
         });
     }
 });

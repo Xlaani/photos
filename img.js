@@ -19,7 +19,6 @@ button.addEventListener('click', async () => {
                 <img src="${photo.url}" />
                 <button data-delete-btn>Delete</button>
                 <button data-update-btn>Update</button>
-                <inpunt
             </div>
         `;
 
